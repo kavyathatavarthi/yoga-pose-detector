@@ -6,7 +6,7 @@ import io
 import os
 
 print("=" * 60)
-print("🧘 TESTING POSE DETECTION")
+print("TESTING POSE DETECTION")
 print("=" * 60)
 
 # Try different image formats
@@ -22,7 +22,7 @@ try:
     if test_image_path is None:
         raise FileNotFoundError("No test image found (test_image.png or test_image.jpg)")
     
-    print(f"📸 Loading image: {test_image_path}")
+    print(f" Loading image: {test_image_path}")
     
     # Load image
     image = Image.open(test_image_path).convert('RGB')
@@ -39,7 +39,7 @@ try:
     img_base64 = base64.b64encode(buffered.getvalue()).decode('utf-8')
     
     # Send to API
-    print("📡 Sending to backend...")
+    print(" Sending to backend...")
     response = requests.post(
         'http://localhost:5000/predict',
         json={'image': f'data:{mime_type};base64,{img_base64}'},
@@ -48,25 +48,25 @@ try:
     
     if response.status_code == 200:
         result = response.json()
-        print("\n✅ Results:")
+        print("\n Results:")
         print(f"   Predicted Pose: {result['pose']}")
         print(f"   Confidence: {result['confidence']:.2%}")
         print(f"   Score: {result['score']}%")
         print(f"   Form Type: {result['form_type']}")
-        print(f"\n💬 Feedback:")
+        print(f"\n Feedback:")
         for msg in result['feedback'][:3]:
             print(f"   • {msg}")
     else:
-        print(f"❌ Error: {response.status_code}")
+        print(f" Error: {response.status_code}")
         print(response.text)
         
 except FileNotFoundError as e:
-    print(f"❌ {e}")
-    print("\n💡 To fix this:")
+    print(f" {e}")
+    print("\n To fix this:")
     print("   1. Take a photo of a yoga pose")
     print("   2. Save it as 'test_image.png' in the backend folder")
     print(f"   3. Location: {os.getcwd()}\\test_image.png")
 except Exception as e:
-    print(f"❌ Error: {e}")
+    print(f" Error: {e}")
 
 print("=" * 60)

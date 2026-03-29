@@ -95,7 +95,7 @@ const PoseDetector = ({ onPoseDetected }) => {
   const captureCurrentPose = () => {
     if (currentPose && currentPose.score >= 50) {
       saveDetection(currentPose);
-      alert(`✅ Pose saved! ${currentPose.pose.toUpperCase()} detected with ${currentPose.score}% accuracy`);
+      alert(` Pose saved! ${currentPose.pose.toUpperCase()} detected with ${currentPose.score}% accuracy`);
     } else {
       alert('No pose detected or confidence too low. Please ensure proper positioning.');
     }

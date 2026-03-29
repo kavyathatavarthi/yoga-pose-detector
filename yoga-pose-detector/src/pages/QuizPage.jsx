@@ -122,9 +122,9 @@ const QuizPage = () => {
             />
           </div>
           <p className="text-gray-600 mb-6">
-            {percentage >= 80 ? "🎉 Excellent! You're a yoga expert!" :
-             percentage >= 60 ? "👍 Good job! Keep practicing!" :
-             "💪 Keep learning! Practice makes perfect!"}
+            {percentage >= 80 ? " Excellent! You're a yoga expert!" :
+             percentage >= 60 ? " Good job! Keep practicing!" :
+             " Keep learning! Practice makes perfect!"}
           </p>
           <button
             onClick={restartQuiz}
@@ -190,7 +190,7 @@ const QuizPage = () => {
                   }`}>
                     {selectedAnswer === index && (
                       <span className="text-white text-sm">
-                        {index === questions[currentQuestion].correct ? '✓' : '✗'}
+                        {index === questions[currentQuestion].correct ? '' : ''}
                       </span>
                     )}
                   </div>

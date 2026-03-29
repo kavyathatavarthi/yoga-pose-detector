@@ -78,7 +78,7 @@ const Detections = () => {
                   </div>
                 </div>
                 <div className="text-sm text-gray-600">
-                  <p>🎯 {detection.confidence > 0.8 ? 'Excellent form!' : 'Keep practicing!'}</p>
+                  <p> {detection.confidence > 0.8 ? 'Excellent form!' : 'Keep practicing!'}</p>
                 </div>
               </motion.div>
             ))}

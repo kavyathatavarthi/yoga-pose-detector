@@ -61,12 +61,12 @@ const Progress = () => {
       
       // Achievements based on TNN scores
       const achievements = [];
-      if (sessionCount >= 1) achievements.push({ name: 'First Practice', icon: '🎯', unlocked: true });
-      if (history.length >= 10) achievements.push({ name: '10 Poses Mastered', icon: '🌟', unlocked: true });
-      if (avgScore >= 80) achievements.push({ name: 'TNN Expert Level', icon: '🏆', unlocked: true });
-      if (Object.keys(posesByType).length >= 3) achievements.push({ name: 'Pose Collector', icon: '📚', unlocked: true });
-      if (streak >= 7) achievements.push({ name: '7-Day Streak', icon: '🔥', unlocked: true });
-      if (best.score >= 95) achievements.push({ name: 'Perfect TNN Form', icon: '✨', unlocked: true });
+      if (sessionCount >= 1) achievements.push({ name: 'First Practice', icon: '', unlocked: true });
+      if (history.length >= 10) achievements.push({ name: '10 Poses Mastered', icon: '', unlocked: true });
+      if (avgScore >= 80) achievements.push({ name: 'TNN Expert Level', icon: '', unlocked: true });
+      if (Object.keys(posesByType).length >= 3) achievements.push({ name: 'Pose Collector', icon: '', unlocked: true });
+      if (streak >= 7) achievements.push({ name: '7-Day Streak', icon: '', unlocked: true });
+      if (best.score >= 95) achievements.push({ name: 'Perfect TNN Form', icon: '', unlocked: true });
       
       setStats({
         totalSessions: sessionCount,
