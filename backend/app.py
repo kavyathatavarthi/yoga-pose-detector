@@ -23,13 +23,13 @@ CORS(app)
 
 # Load model
 print("=" * 60)
-print("🧘 YOGA POSE DETECTOR - TREE POSE FIXED")
+print(" YOGA POSE DETECTOR - TREE POSE FIXED")
 print("=" * 60)
 
 # Load labels
 labels_path = os.path.join(os.path.dirname(__file__), "labels.txt")
 class_names = load_labels(labels_path)
-print(f"📋 Model classes ({len(class_names)} poses):")
+print(f" Model classes ({len(class_names)} poses):")
 for i, name in enumerate(class_names):
     print(f"   {i+1}. {name}")
 
@@ -37,7 +37,7 @@ for i, name in enumerate(class_names):
 model_path = os.path.join(os.path.dirname(__file__), "yoga_best.pth")
 model = load_model(model_path, class_names)
 transform = get_transform()
-print("✅ Model ready!")
+print(" Model ready!")
 
 # MediaPipe initialization
 mp_pose = mp.solutions.pose
@@ -286,16 +286,16 @@ def generate_feedback(pose_name, joint_angles, metrics, score, form_type):
     
     if form_type == "perfect":
         perfect_msgs = corrections.get("perfect", [f"Excellent {pose_name.capitalize()}!"])
-        feedback.append(f"⭐ {perfect_msgs[0]}")
+        feedback.append(f" {perfect_msgs[0]}")
         if score >= 92:
-            feedback.append("🎯 Outstanding form! Keep it up!")
+            feedback.append(" Outstanding form! Keep it up!")
         return feedback[:3]
     
     if form_type == "good":
-        feedback.append("✓ Good form! Minor improvements:")
+        feedback.append(" Good form! Minor improvements:")
     
     if form_type in ["needs_work", "poor"]:
-        feedback.append("⚠️ Corrections needed:")
+        feedback.append(" Corrections needed:")
     
     issues_found = []
     
@@ -549,10 +549,10 @@ def predict():
             form_type = "poor"
         
         print(f"\n{'='*45}")
-        print(f"🎯 Pose: {pose_name}")
-        print(f"🌳 Tree Confidence: {tree_confidence:.1%}")
-        print(f"📊 Score: {score}% | Form: {form_type.upper()}")
-        print(f"💬 {feedback[0] if feedback else 'No feedback'}")
+        print(f" Pose: {pose_name}")
+        print(f" Tree Confidence: {tree_confidence:.1%}")
+        print(f" Score: {score}% | Form: {form_type.upper()}")
+        print(f" {feedback[0] if feedback else 'No feedback'}")
         print(f"{'='*45}")
         
         return jsonify({
@@ -575,11 +575,11 @@ def predict():
 
 if __name__ == '__main__':
     print("\n" + "=" * 60)
-    print("🚀 YOGA POSE DETECTOR - TREE POSE STABLE")
+    print(" YOGA POSE DETECTOR - TREE POSE STABLE")
     print("=" * 60)
-    print("✅ Direct Tree Pose detection using leg position")
-    print("✅ Tree Pose overrides TNN when detected")
-    print("✅ Fast 3-frame lock")
-    print("✅ No more fluctuations between Uncertain and Tree")
+    print(" Direct Tree Pose detection using leg position")
+    print(" Tree Pose overrides TNN when detected")
+    print(" Fast 3-frame lock")
+    print(" No more fluctuations between Uncertain and Tree")
     print("=" * 60)
     app.run(host='0.0.0.0', port=5000, debug=True)

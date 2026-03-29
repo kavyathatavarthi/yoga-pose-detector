@@ -26,8 +26,8 @@ def load_model(model_path, class_names):
     )
     if os.path.exists(model_path):
         model.load_state_dict(torch.load(model_path, map_location='cpu'))
-        print(f"✅ Model loaded from {model_path}")
+        print(f" Model loaded from {model_path}")
     else:
-        print(f"⚠️ Model file not found: {model_path}")
+        print(f" Model file not found: {model_path}")
     model.eval()
     return model
