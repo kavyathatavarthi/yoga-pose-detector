@@ -1,5 +1,6 @@
 import sys
 print(f"Python version: {sys.version}")
+print("Checking imports...")
 
 try:
     import flask
